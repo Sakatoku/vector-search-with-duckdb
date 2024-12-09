@@ -1,0 +1,32 @@
+CREATE TABLE my_vector_table (i INTEGER, v FLOAT[3]);
+INSERT INTO my_vector_table VALUES
+    (11, array_value(1.0::FLOAT, 1.0::FLOAT, 1.0::FLOAT)),
+    (12, array_value(1.0::FLOAT, 1.0::FLOAT, 2.0::FLOAT)),
+    (13, array_value(1.0::FLOAT, 1.0::FLOAT, 3.0::FLOAT)),
+    (14, array_value(1.0::FLOAT, 2.0::FLOAT, 1.0::FLOAT)),
+    (15, array_value(1.0::FLOAT, 2.0::FLOAT, 2.0::FLOAT)),
+    (16, array_value(1.0::FLOAT, 2.0::FLOAT, 3.0::FLOAT)),
+    (17, array_value(1.0::FLOAT, 3.0::FLOAT, 1.0::FLOAT)),
+    (18, array_value(1.0::FLOAT, 3.0::FLOAT, 2.0::FLOAT)),
+    (19, array_value(1.0::FLOAT, 3.0::FLOAT, 3.0::FLOAT)),
+    (21, array_value(2.0::FLOAT, 1.0::FLOAT, 1.0::FLOAT)),
+    (22, array_value(2.0::FLOAT, 1.0::FLOAT, 2.0::FLOAT)),
+    (23, array_value(2.0::FLOAT, 1.0::FLOAT, 3.0::FLOAT)),
+    (24, array_value(2.0::FLOAT, 2.0::FLOAT, 1.0::FLOAT)),
+    (25, array_value(2.0::FLOAT, 2.0::FLOAT, 2.0::FLOAT)),
+    (26, array_value(2.0::FLOAT, 2.0::FLOAT, 3.0::FLOAT)),
+    (27, array_value(2.0::FLOAT, 3.0::FLOAT, 1.0::FLOAT)),
+    (28, array_value(2.0::FLOAT, 3.0::FLOAT, 2.0::FLOAT)),
+    (29, array_value(2.0::FLOAT, 3.0::FLOAT, 3.0::FLOAT)),
+    (31, array_value(3.0::FLOAT, 1.0::FLOAT, 1.0::FLOAT)),
+    (32, array_value(3.0::FLOAT, 1.0::FLOAT, 2.0::FLOAT)),
+    (33, array_value(3.0::FLOAT, 1.0::FLOAT, 3.0::FLOAT)),
+    (34, array_value(3.0::FLOAT, 2.0::FLOAT, 1.0::FLOAT)),
+    (35, array_value(3.0::FLOAT, 2.0::FLOAT, 2.0::FLOAT)),
+    (36, array_value(3.0::FLOAT, 2.0::FLOAT, 3.0::FLOAT)),
+    (37, array_value(3.0::FLOAT, 3.0::FLOAT, 1.0::FLOAT)),
+    (38, array_value(3.0::FLOAT, 3.0::FLOAT, 2.0::FLOAT)),
+    (39, array_value(3.0::FLOAT, 3.0::FLOAT, 3.0::FLOAT)),
+;
+SELECT * FROM my_vector_table;
+SELECT *, array_distance(v, [1, 2, 3]::FLOAT[3]) as d FROM my_vector_table ORDER BY d LIMIT 10;
